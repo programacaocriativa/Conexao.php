@@ -5,6 +5,10 @@
      
      public static $instance;
      
+     /*private function __construct(){
+         // Iniciar os parametros que serão criados quando chamada a função
+     }*/
+     
      public static function getInstance(){
          if( !isset( self::$instance ) ){
              self::$instance = new PDO( 'mysql:host=localhost;dbname=teste', 'root', '', array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" ) );
