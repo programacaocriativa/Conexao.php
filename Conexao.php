@@ -1,21 +1,9 @@
-<?php
- namespace classes\conexao;
-
- class Conexao {
-     
-     public static $instance;
-     
-     /*private function __construct(){
-         // Iniciar os parametros que serão criados quando chamada a função
-     }*/
-     
-     public static function getInstance(){
-         if( !isset( self::$instance ) ){
-             self::$instance = new PDO( 'mysql:host=localhost;dbname=teste', 'root', '', array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" ) );
-             self::$instance->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-             self::$instance->setAttribute( PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING );
-         }
-         return self::$instance;
-     }
-     
- }
+<?php 
+ try
+    {
+        $pdo = new PDO( "mysql:host=localhost;dbname=teste", "root", "" );
+    }
+ catch( PDOException $e )
+    {
+        echo $e->getMessage();   
+    }
